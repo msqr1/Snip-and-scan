@@ -1,1 +1,2 @@
-# Snipping-tool--QR-Scanner
+# Snipping-tool--Barcode/QR-Scanner
+A spin-off from Window's snipping tool, with an added functionality of a Barcode and QR scanner. Use this directly the Python IDE, or turn into .exe with console on to see the output of the scanned Barcode or QR. This is made upon a window glitch I found that make windows minimize and maximize instantly, ignoring animation settings (not sure it will continue working).

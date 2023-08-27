@@ -1,0 +1,1 @@
+# Snipping-tool--QR-Scanner

@@ -159,7 +159,6 @@ class CancelButton(pg.sprite.Sprite):
     def __init__(self):
         global width,height
         pg.sprite.Sprite.__init__(self)
-        pg.sprite.Sprite.__init__(self)
         self.font = pg.font.Font(None,45)
         self.image = self.font.render(' Cancel ',True,(0,0,0),(255,255,0))
         self.rect = self.image.get_rect()

@@ -95,13 +95,9 @@ class DragTool(pg.sprite.Sprite):
         self.subwidth,self.subheight = None,None
         self.zoom = 0
     def pgRectfrom2Pts(self,pos1,pos2):
-        if(pos2[0] < pos1[0]):
-            if(pos2[1] < pos1[1]):
-                return pg.Rect(pos2[0], pos2[1], pos1[0] - pos2[0], pos1[1] - pos2[1])
-            return pg.Rect(pos2[0], pos1[1], pos1[0] - pos2[0], pos2[1] - pos1[1])
-        if(pos2[1] < pos1[1]):
-            return pg.Rect(pos1[0], pos2[1], pos2[0] - pos1[0], pos1[1] - pos2[1])
-        return pg.Rect(pos1[0],pos1[1],pos2[0]-pos1[0],pos2[1]-pos1[1])
+        rect = pg.Rect(pos1[0],pos1[1],pos2[0]-pos1[0],pos2[1]-pos1[1])
+        rect.normalize()
+        return rect
     def dragDetection(self):
         global thread1,globalpos,name
         if self.candrag:
@@ -117,7 +113,7 @@ class DragTool(pg.sprite.Sprite):
                 caprect = self.pgRectfrom2Pts(self.pos1,self.pos2)
                 pg.draw.rect(screen,(0,0,0),caprect,2)
                 if pg.mouse.get_pressed()[0] == False:
-                    if abs(self.pos2[0] - self.pos1[0])<=6 and abs(self.pos2[1]-self.pos2[1])<=6:
+                    if abs(self.pos2[0] - self.pos1[0])==0 or abs(self.pos2[1]-self.pos2[1])==0:
                         allsprite.add(CancelButton())
                         allsprite.add(Cursor())
                         self.pos1,self.pos2 = None,None

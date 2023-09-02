@@ -1,7 +1,7 @@
 from io import BytesIO
 from tkinter import filedialog
 from pyzbar import pyzbar
-import pygame as pg,os,pyautogui as pag,tkinter as tk,win32api,sys,win32gui,win32con,tempfile,PIL,datetime,win32clipboard,random
+import pygame as pg,os,pyautogui as pag,tkinter as tk,win32api,sys,win32gui,win32con,tempfile,PIL,datetime,win32clipboard
 pag.FAILSAFE = False
 pg.init()
 width,height = pag.size()
